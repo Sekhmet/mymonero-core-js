@@ -59,6 +59,11 @@ EMSCRIPTEN_BINDINGS(my_module)
     // emscripten::function("estimated_tx_network_fee", &serial_bridge::estimated_tx_network_fee);
     //
     emscripten::function("generate_key_image", &serial_bridge::generate_key_image);
+    //
+    emscripten::function("generate_key_derivation", &serial_bridge::generate_key_derivation);
+    emscripten::function("derivation_to_scalar", &serial_bridge::derivation_to_scalar);
+    emscripten::function("derive_public_key", &serial_bridge::derive_public_key);
+    emscripten::function("derive_secret_key", &serial_bridge::derive_secret_key);
 }
 extern "C"
 { // C -> JS

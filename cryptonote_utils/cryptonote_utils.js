@@ -401,6 +401,101 @@ var cnUtil = function(currencyConfig)
 		return ret.retVal;
 	};
 
+	this.generate_key_derivation = function(key1, key2) {
+		if (key1.length !== 64) {
+			return { err_msg: "Invalid public key length" };
+		}
+		if (key2.length !== 64) {
+			return { err_msg: "Invalid secret key length" };
+		}
+		const args =
+		{
+			key1_string: key1,
+			key2_string: key2
+		};
+		const args_str = JSON.stringify(args);
+		const CNCrypto = loaded_CNCrypto();
+		const ret_string = CNCrypto.generate_key_derivation(args_str);
+		const ret = JSON.parse(ret_string);
+		if (typeof ret.err_msg !== 'undefined' && ret.err_msg) {
+			return { err_msg: ret.err_msg };
+		}
+		return ret.retVal;
+	};
+
+	this.derivation_to_scalar = function(derivation, output_index) {
+		if (derivation.length !== 64) {
+			return { err_msg: "Invalid derivation length" };
+		}
+		const args =
+		{
+			derivation_string: derivation,
+			out_index: "" + output_index
+		};
+		const args_str = JSON.stringify(args);
+		const CNCrypto = loaded_CNCrypto();
+		const ret_string = CNCrypto.derivation_to_scalar(args_str);
+		const ret = JSON.parse(ret_string);
+		if (typeof ret.err_msg !== 'undefined' && ret.err_msg) {
+			return { err_msg: ret.err_msg };
+		}
+		return ret.retVal;
+	};
+
+	this.derive_public_key = function(
+		derivation,
+		output_index,
+		base
+	) {
+		if (derivation.length !== 64) {
+			return { err_msg: "Invalid derivation length" };
+		}
+		if (base.length !== 64) {
+			return { err_msg: "Invalid public key length" };
+		}
+		const args =
+		{
+			derivation_string: derivation,
+			out_index: "" + output_index,
+			base_string: base
+		};
+		const args_str = JSON.stringify(args);
+		const CNCrypto = loaded_CNCrypto();
+		const ret_string = CNCrypto.derive_public_key(args_str);
+		const ret = JSON.parse(ret_string);
+		if (typeof ret.err_msg !== 'undefined' && ret.err_msg) {
+			return { err_msg: ret.err_msg };
+		}
+		return ret.retVal;
+	};
+
+	this.derive_secret_key = function(
+		derivation,
+		output_index,
+		base
+	) {
+		if (derivation.length !== 64) {
+			return { err_msg: "Invalid derivation length" };
+		}
+		if (base.length !== 64) {
+			return { err_msg: "Invalid secret key length" };
+		}
+		const args =
+		{
+			derivation_string: derivation,
+			out_index: "" + output_index,
+			base_string: base
+		};
+		const args_str = JSON.stringify(args);
+		const CNCrypto = loaded_CNCrypto();
+		const ret_string = CNCrypto.derive_secret_key(args_str);
+		const ret = JSON.parse(ret_string);
+		if (typeof ret.err_msg !== 'undefined' && ret.err_msg) {
+			return { err_msg: ret.err_msg };
+		}
+		return ret.retVal;
+	};
+
 	this.create_signed_transaction__IPCsafe = function(
 		from_address_string,
 		sec_keys,
