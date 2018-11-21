@@ -46,6 +46,7 @@ exports.bridgedFn_names =
 	"derive_public_key",
 	"derive_subaddress_public_key",
 	"decodeRct",
+	"decodeRctSimple",
 	"estimate_rct_tx_size",
 	"calculate_fee",
 	"estimated_tx_network_fee",
