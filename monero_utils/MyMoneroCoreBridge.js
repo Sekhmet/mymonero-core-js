@@ -525,7 +525,7 @@ class MyMoneroCoreBridge
 		if (typeof ret.err_msg !== 'undefined' && ret.err_msg) {
 			return { err_msg: ret.err_msg }
 		}
-		return ret.retVal;
+		return parseInt(ret.retVal, 10);
 	}
 	send_step1__prepare_params_for_get_decoys(
 		is_sweeping,
