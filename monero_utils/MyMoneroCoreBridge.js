@@ -509,6 +509,24 @@ class MyMoneroCoreBridge
 		}
 		return ret.retVal; // this is a string - pass it to new JSBigInt(…)
 	}
+	estimate_rct_tx_size(n_inputs, mixin, n_outputs, extra_size, bulletproof)
+	{
+		const args =
+		{
+			n_inputs,
+			mixin,
+			n_outputs,
+			extra_size,
+			bulletproof
+		};
+		const args_str = JSON.stringify(args);
+		const ret_string = this.Module.estimate_rct_tx_size(args_str);
+		const ret = JSON.parse(ret_string);
+		if (typeof ret.err_msg !== 'undefined' && ret.err_msg) {
+			return { err_msg: ret.err_msg }
+		}
+		return ret.retVal;
+	}
 	send_step1__prepare_params_for_get_decoys(
 		is_sweeping,
 		sending_amount, // this may be 0 if sweeping
