@@ -33,7 +33,7 @@
 const mymonero_core_js = {};
 mymonero_core_js.monero_utils_promise = require("./monero_utils/monero_utils")(); // NOTE: This is actually a promise. Call .then(function(monero_utils) { }) to actually use
 mymonero_core_js.monero_config = require("./monero_utils/monero_config");
-mymonero_core_js.monero_txParsing_utils = require("./monero_utils/monero_txParsing_utils");
+// mymonero_core_js.monero_txParsing_utils = require("./monero_utils/monero_txParsing_utils");
 mymonero_core_js.monero_sendingFunds_utils = require("./monero_utils/monero_sendingFunds_utils");
 mymonero_core_js.monero_requestURI_utils = require("./monero_utils/monero_requestURI_utils");
 mymonero_core_js.monero_keyImage_cache_utils = require("./monero_utils/monero_keyImage_cache_utils");
