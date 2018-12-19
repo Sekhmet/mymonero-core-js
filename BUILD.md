@@ -24,19 +24,19 @@ tar zxf boost_1_69_0.tar.gz -C contrib/boost-sdk --strip-components=1
 
 ```shell
 # Build boost emscripten
-docker run -it -v $(pwd):/app quay.io/exodusmovement/docker-emscripten ./bin/build-boost-emscripten.sh
+docker run -it -v $(pwd):/app quay.io/exodusmovement/emscripten ./bin/build-boost-emscripten.sh
 
 # Build MyMonero emscripten
-docker run -it -v $(pwd):/app quay.io/exodusmovement/docker-emscripten ./bin/archive-emcpp.sh
+docker run -it -v $(pwd):/app quay.io/exodusmovement/emscripten ./bin/archive-emcpp.sh
 
 # If you get '#error Including <emscripten/bind.h> requires building with -std=c++11 or newer!' error, re-run:
 
-docker run -it -v $(pwd):/app quay.io/exodusmovement/docker-emscripten ./bin/archive-emcpp.sh
+docker run -it -v $(pwd):/app quay.io/exodusmovement/emscripten ./bin/archive-emcpp.sh
 
 # Create monero_utils/MyMoneroCoreCpp_* files, they should be same as the ones in repo.
 ```
 
 # Other Notes
 
-The `quay.io/exodusmovement/docker-emscripten` image was built by Quay.io
+The `quay.io/exodusmovement/emscripten` image was built by Quay.io
 See instructions at https://github.com/ExodusMovement/docker-emscripten
