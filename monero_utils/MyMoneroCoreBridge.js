@@ -699,6 +699,22 @@ class MyMoneroCoreBridge
 		}
 		return ret.retVal;
 	}
+  encrypt_payment_id(payment_id, public_key, private_key)
+	{
+		const args =
+		{
+			payment_id: payment_id,
+			Public_key: public_key,
+			private_key: private_key
+		};
+		const args_str = JSON.stringify(args);
+		const ret_string = this.Module.encrypt_payment_id(args_str);
+		const ret = JSON.parse(ret_string);
+		if (typeof ret.err_msg !== 'undefined' && ret.err_msg) {
+			return { err_msg: ret.err_msg };
+		}
+		return ret.retVal;
+	}
 }
 //
 module.exports = function(options)
