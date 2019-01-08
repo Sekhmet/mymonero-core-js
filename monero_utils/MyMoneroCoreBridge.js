@@ -699,13 +699,13 @@ class MyMoneroCoreBridge
 		}
 		return ret.retVal;
 	}
-  encrypt_payment_id(payment_id, public_key, private_key)
+  encrypt_payment_id(payment_id, public_key, secret_key)
 	{
 		const args =
 		{
 			payment_id: payment_id,
-			Public_key: public_key,
-			private_key: private_key
+			public_key: public_key,
+			secret_key: secret_key
 		};
 		const args_str = JSON.stringify(args);
 		const ret_string = this.Module.encrypt_payment_id(args_str);
