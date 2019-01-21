@@ -89,6 +89,12 @@ const moneroUtils_promise_fn = function(options)
 			resolve(local_fns);
 		}
 		if (wants_electronRemote) {
+
+			// Fix TypeError: Cannot read property 'require' of undefined in unit test
+			if (!require('electron').remote) {
+				return
+			}
+
 			// Require file again except on the main process ...
 			// this avoids a host of issues running wasm on the renderer side, 
 			// for right now until we can load such files raw w/o unsafe-eval
