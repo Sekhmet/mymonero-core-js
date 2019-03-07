@@ -30,7 +30,7 @@
 //
 function tests(Module)
 {
-	console.log("Module", Module)
+  // console.log("Module", Module)
 	//
 	{
 		console.time("send_step1__prepare_params_for_get_decoys")
@@ -216,7 +216,7 @@ console.time("Load module")
 require('../monero_utils/MyMoneroCoreBridge')({asmjs: false}).then(function(instance) // this can be switched to manually test asmjs vs wasm - can be exposed to option
 {	
 	console.timeEnd("Load module")
-	console.log("Loaded instance:", instance)
+  // console.log("Loaded instance:", instance)
 	tests(instance.Module)
 }).catch(function(e)
 {

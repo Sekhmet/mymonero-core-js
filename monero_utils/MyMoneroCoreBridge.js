@@ -595,7 +595,8 @@ class MyMoneroCoreBridge
 		priority,
 		fee_per_b, // not kib - if fee_per_kb, /= 1024
 		unlock_time,
-		nettype
+		nettype,
+		hf_version
 	) {
 		unlock_time = unlock_time || 0;
 		mix_outs = mix_outs || [];
@@ -656,7 +657,8 @@ class MyMoneroCoreBridge
 			using_outs: sanitary__using_outs,
 			mix_outs: sanitary__mix_outs,
 			unlock_time: "" + unlock_time, // bridge is expecting a string
-			nettype_string: nettype_utils.nettype_to_API_string(nettype)
+			nettype_string: nettype_utils.nettype_to_API_string(nettype),
+			hf_version: "" + hf_version
 		};
 		if (typeof payment_id !== "undefined" && payment_id) {
 			args.payment_id_string = payment_id;
