@@ -2,7 +2,7 @@ const MyMoneroCoreBridgeClass = require("./monero_utils/MyMoneroCoreBridgeClass"
 const ASM = require("./monero_utils/MyMoneroCoreCpp_ASMJS.asm.rn");
 const { atob } = require("./utils");
 
-module.exports = function initMonero() {
+function initMonero() {
 	return new Promise((resolve, reject) => {
 		const Module_template = {};
 		let Module = {};
@@ -29,3 +29,7 @@ module.exports = function initMonero() {
 		}, 1);
 	});
 };
+
+module.exports = {
+	monero_utils_promise: initMonero()
+}
