@@ -8,8 +8,6 @@ ASM_FILE_OUT="$DIR/MyMoneroCoreCpp_ASMJS.asm.rn.js"
 LOADER_FILE="$DIR/MyMoneroCoreCpp_ASMJS.js"
 LOADER_FILE_OUT="$DIR/MyMoneroCoreCpp_ASMJS.rn.js"
 
-echo "Make sure to use gnu-sed on macOS!"
-
 echo "🔁  Creating Base64 module for ASMJS"
 echo "module.exports = \"`base64 $ASM_FILE`\";" > $ASM_FILE_OUT
 
